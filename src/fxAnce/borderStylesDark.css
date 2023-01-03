@@ -1,0 +1,47 @@
+.default {
+    -fx-background-color: black;
+}
+
+.gridPane {
+    -fx-background-color: #2a344d;
+}
+
+.pane {
+    -fx-background-color: #575e73;
+
+    -fx-background-radius : 10px;
+    -fx-border-radius: 10px;
+}
+
+.titles {
+    -fx-background-color: rgb(185, 182, 182);
+    
+    -fx-border-radius: 10px;
+}
+
+.annee1 {
+    -fx-background-color: red;
+
+    -fx-background-radius : 10px;
+    -fx-border-radius: 10px;
+}
+
+.rows {
+    -fx-font-weight: bolder;
+}
+
+.border {
+    -fx-background-color: grey;
+}
+
+.listView {
+    -fx-border-radius: 10px;
+    -fx-background-radius: 10px;
+}
+
+.background {
+    -fx-background-color: #33363f;
+}
+
+/*  #21418f
+     #311224 */

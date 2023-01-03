@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="191.0" prefWidth="328.0" style="-fx-border-color: red; -fx-border-radius: 10px; -fx-border-width: 3px; -fx-background-radius: 10px;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fxAnce.ErrorController">
+   <children>
+      <TextArea fx:id="error" prefHeight="196.0" prefWidth="322.0" promptText="text" style="-fx-text-fill: red;" wrapText="true">
+         <font>
+            <Font name="Ubuntu Mono" size="25.0" />
+         </font>
+      </TextArea>
+   </children>
+</VBox>

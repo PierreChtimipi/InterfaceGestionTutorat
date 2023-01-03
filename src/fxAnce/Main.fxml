@@ -1,0 +1,466 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+  Copyright (c) 2015, 2019, Gluon and/or its affiliates.
+  All rights reserved. Use is subject to license terms.
+
+  This file is available and licensed under the following license:
+
+  Redistribution and use in source and binary forms, with or without
+  modification, are permitted provided that the following conditions
+  are met:
+
+  - Redistributions of source code must retain the above copyright
+    notice, this list of conditions and the following disclaimer.
+  - Redistributions in binary form must reproduce the above copyright
+    notice, this list of conditions and the following disclaimer in
+    the documentation and/or other materials provided with the distribution.
+  - Neither the name of Oracle Corporation nor the names of its
+    contributors may be used to endorse or promote products derived
+    from this software without specific prior written permission.
+
+  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+  "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+  LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+  A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+  OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+  SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+  LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+  DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+  THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+  (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+  OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+-->
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.SeparatorMenuItem?>
+<?import javafx.scene.control.Slider?>
+<?import javafx.scene.control.Spinner?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1280.0" stylesheets="@borderStyles.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fxAnce.MainController">
+  <children>
+       <MenuBar VBox.vgrow="NEVER">
+      <menus>
+        <Menu mnemonicParsing="false" text="File">
+          <items>
+            <MenuItem mnemonicParsing="false" text="New" />
+            <MenuItem mnemonicParsing="false" onAction="#openFile" text="Open…" />
+            <SeparatorMenuItem mnemonicParsing="false" />
+            <MenuItem mnemonicParsing="false" text="Close" />
+            <MenuItem mnemonicParsing="false" onAction="#saveFile" text="Save" />
+            <SeparatorMenuItem mnemonicParsing="false" />
+            <MenuItem mnemonicParsing="false" text="Preferences…" />
+            <SeparatorMenuItem mnemonicParsing="false" />
+            <MenuItem mnemonicParsing="false" text="Quit" />
+          </items>
+        </Menu>
+      </menus>
+    </MenuBar>
+      <HBox alignment="CENTER_LEFT" prefHeight="81.0" prefWidth="1280.0" style="-fx-background-color: grey;">
+         <children>
+            <Label alignment="CENTER" prefHeight="57.0" prefWidth="163.0" text="Tuteurs" textFill="WHITE">
+               <font>
+                  <Font name="Ubuntu Mono" size="34.0" />
+               </font></Label>
+            <Pane prefHeight="39.0" prefWidth="247.0" />
+            <Label alignment="CENTER" prefHeight="58.0" prefWidth="170.0" text="Tutorés" textFill="WHITE">
+               <font>
+                  <Font name="Ubuntu Mono" size="34.0" />
+               </font></Label>
+         </children>
+      </HBox>
+      <HBox prefHeight="776.0" prefWidth="1280.0" styleClass="background">
+         <children>
+            <ListView fx:id="guardiansLv" onMouseClicked="#updateAffectation" prefHeight="747.0" prefWidth="484.0" styleClass="listView" HBox.hgrow="ALWAYS" />
+            <ListView fx:id="tuteesLv" onMouseClicked="#updateAffectation" prefHeight="747.0" prefWidth="474.0" />
+            <TabPane prefHeight="757.0" prefWidth="512.0" tabClosingPolicy="UNAVAILABLE">
+               <Tab text="Critères">
+                <content>
+                        <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" stylesheets="@borderStyles.css">
+               <children>
+                  <Label styleClass="titles" text="Filtrage">
+                     <font>
+                        <Font name="Ubuntu Mono" size="28.0" />
+                     </font>
+                  </Label>
+                  <GridPane alignment="CENTER" minWidth="400.0" prefHeight="300.0" prefWidth="400.0" styleClass="gridPane">
+                    <columnConstraints>
+                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="50.0" />
+                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="50.0" />
+                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="50.0" />
+                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="50.0" />
+                        <ColumnConstraints />
+                    </columnConstraints>
+                    <rowConstraints>
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                     <children>
+                        <Pane maxWidth="1.7976931348623157E308" prefHeight="180.0" prefWidth="113.0" styleClass="border" GridPane.columnIndex="3" GridPane.rowIndex="1" GridPane.rowSpan="6" />
+                        <Pane prefHeight="83.0" styleClass="settingsPane" GridPane.columnIndex="2" GridPane.columnSpan="2" GridPane.rowIndex="1" GridPane.rowSpan="8">
+                                    <children>
+                              <Label alignment="CENTER" layoutX="118.0" layoutY="190.0" prefHeight="50.0" prefWidth="91.0" styleClass="annee1" text="1er année">
+                                 <font>
+                                    <Font name="Ubuntu Mono" size="17.0" />
+                                 </font>
+                              </Label>
+                              <Spinner fx:id="minTutee" editable="true" initialValue="0.0" layoutX="126.0" layoutY="120.0" max="20.0" maxWidth="1.7976931348623157E308" min="0.0" onKeyPressed="#onTuteeSpinnerTextAreaChanged" onMouseReleased="#onTuteeSpinnerChanged" prefHeight="24.0" prefWidth="75.0" />
+                              <Spinner fx:id="maxTutee" editable="true" initialValue="20.0" layoutX="126.0" layoutY="150.0" max="20.0" min="0.0" onKeyPressed="#onTuteeSpinnerTextAreaChanged" onMouseReleased="#onTuteeSpinnerChanged" prefHeight="24.0" prefWidth="75.0" />
+                                    </children></Pane>
+                        <Pane maxWidth="1.7976931348623157E308" prefWidth="114.0" styleClass="border" GridPane.columnIndex="2" GridPane.rowIndex="1" GridPane.rowSpan="8">
+                                    <children>
+                              <Spinner fx:id="minGuardian" editable="true" initialValue="0.0" layoutX="15.0" layoutY="120.0" max="20.0" min="0.0" onKeyPressed="#onGuardianSpinnerTextAreaChanged" onMouseReleased="#onGuardianSpinnerChanged" prefHeight="24.0" prefWidth="75.0" />
+                              <Spinner fx:id="maxGuardian" editable="true" initialValue="20.0" layoutX="15.0" layoutY="150.0" max="20.0" min="0.0" onKeyPressed="#onGuardianSpinnerTextAreaChanged" onMouseReleased="#onGuardianSpinnerChanged" prefHeight="24.0" prefWidth="75.0" />
+                                    </children>
+                                 </Pane>
+                        <Pane prefHeight="83.0" styleClass="pane" GridPane.columnSpan="2" GridPane.rowSpan="9" />
+                        <Pane id="pane" prefHeight="83.0" styleClass="pane" GridPane.columnSpan="4" />
+                        <Label alignment="CENTER" prefHeight="124.0" prefWidth="122.0" text="Tuteurs" GridPane.columnIndex="2">
+                           <font>
+                              <Font name="Ubuntu Mono" size="22.0" />
+                           </font>
+                        </Label>
+                        <Label alignment="CENTER" prefHeight="88.0" prefWidth="142.0" text="Tutorés" GridPane.columnIndex="3">
+                           <font>
+                              <Font name="Ubuntu Mono" size="22.0" />
+                           </font>
+                        </Label>
+                        <Label alignment="CENTER" prefHeight="95.0" prefWidth="158.0" styleClass="rows" text="Matières" GridPane.rowIndex="1" GridPane.rowSpan="4">
+                           <font>
+                              <Font name="Ubuntu Mono" size="20.0" />
+                           </font>
+                        </Label>
+                        <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="115.0" prefWidth="138.0" stylesheets="@borderStyles.css" text="JAVA" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                           <font>
+                              <Font name="Ubuntu Mono" size="20.0" />
+                           </font>
+                        </Label>
+                        <CheckBox fx:id="jg" mnemonicParsing="false" onAction="#onGuardianCheckedSubject" selected="true" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                           <GridPane.margin>
+                              <Insets left="40.0" />
+                           </GridPane.margin>
+                        </CheckBox>
+                        <CheckBox fx:id="jt" mnemonicParsing="false" onAction="#onTuteeCheckedSubject" selected="true" GridPane.columnIndex="3" GridPane.rowIndex="1">
+                           <GridPane.margin>
+                              <Insets left="40.0" />
+                           </GridPane.margin>
+                        </CheckBox>
+                        <Label alignment="CENTER" prefHeight="95.0" prefWidth="157.0" text="BDD" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                           <font>
+                              <Font name="Ubuntu Mono" size="20.0" />
+                           </font>
+                        </Label>
+                        <CheckBox fx:id="bg" mnemonicParsing="false" onAction="#onGuardianCheckedSubject" selected="true" GridPane.columnIndex="2" GridPane.rowIndex="2">
+                           <GridPane.margin>
+                              <Insets left="40.0" />
+                           </GridPane.margin>
+                        </CheckBox>
+                        <CheckBox fx:id="bt" mnemonicParsing="false" onAction="#onTuteeCheckedSubject" selected="true" GridPane.columnIndex="3" GridPane.rowIndex="2">
+                           <GridPane.margin>
+                              <Insets left="40.0" />
+                           </GridPane.margin>
+                        </CheckBox>
+                        <Label alignment="CENTER" prefHeight="95.0" prefWidth="158.0" text="GRAPHES" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                           <font>
+                              <Font name="Ubuntu Mono" size="20.0" />
+                           </font>
+                        </Label>
+                        <CheckBox fx:id="gg" mnemonicParsing="false" onAction="#onGuardianCheckedSubject" selected="true" GridPane.columnIndex="2" GridPane.rowIndex="3">
+                           <GridPane.margin>
+                              <Insets left="40.0" />
+                           </GridPane.margin>
+                        </CheckBox>
+                        <CheckBox fx:id="gt" mnemonicParsing="false" onAction="#onTuteeCheckedSubject" selected="true" GridPane.columnIndex="3" GridPane.rowIndex="3">
+                           <GridPane.margin>
+                              <Insets left="40.0" />
+                           </GridPane.margin>
+                        </CheckBox>
+                        <Label alignment="CENTER" prefHeight="129.0" prefWidth="202.0" text="LANGAGEC" GridPane.columnIndex="1" GridPane.rowIndex="4">
+                           <font>
+                              <Font name="Ubuntu Mono" size="20.0" />
+                           </font>
+                        </Label>
+                        <CheckBox fx:id="cg" mnemonicParsing="false" onAction="#onGuardianCheckedSubject" prefHeight="18.0" prefWidth="0.0" selected="true" GridPane.columnIndex="2" GridPane.rowIndex="4">
+                           <GridPane.margin>
+                              <Insets left="40.0" />
+                           </GridPane.margin>
+                        </CheckBox>
+                        <CheckBox fx:id="ct" mnemonicParsing="false" onAction="#onTuteeCheckedSubject" selected="true" GridPane.columnIndex="3" GridPane.rowIndex="4">
+                           <GridPane.margin>
+                              <Insets left="40.0" />
+                           </GridPane.margin>
+                        </CheckBox>
+                        <Label alignment="CENTER" prefHeight="57.0" prefWidth="100.0" styleClass="rows" text="Moyenne" GridPane.rowIndex="5" GridPane.rowSpan="2">
+                           <font>
+                              <Font name="Ubuntu Mono" size="20.0" />
+                           </font>
+                        </Label>
+                        <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="259.0" prefWidth="123.0" text="Min" GridPane.columnIndex="1" GridPane.rowIndex="5">
+                           <font>
+                              <Font name="Ubuntu Mono" size="20.0" />
+                           </font>
+                        </Label>
+                        <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="113.0" prefWidth="167.0" text="Max" GridPane.columnIndex="1" GridPane.rowIndex="6">
+                           <font>
+                              <Font name="Ubuntu Mono" size="20.0" />
+                           </font>
+                        </Label>
+                        <Label alignment="CENTER" prefHeight="61.0" prefWidth="150.0" styleClass="rows" text="Année" GridPane.rowIndex="7" GridPane.rowSpan="2">
+                           <font>
+                              <Font name="Ubuntu Mono" size="20.0" />
+                           </font>
+                        </Label>
+                        <Label alignment="CENTER" prefHeight="140.0" prefWidth="152.0" text="2" GridPane.columnIndex="1" GridPane.rowIndex="7">
+                           <font>
+                              <Font name="Ubuntu Mono" size="20.0" />
+                           </font>
+                        </Label>
+                        <CheckBox fx:id="y2" mnemonicParsing="false" onAction="#onGuardianCheckedYear" prefHeight="0.0" prefWidth="0.0" selected="true" GridPane.columnIndex="2" GridPane.rowIndex="7">
+                           <GridPane.margin>
+                              <Insets left="40.0" />
+                           </GridPane.margin>
+                        </CheckBox>
+                        <Label alignment="CENTER" prefHeight="189.0" prefWidth="222.0" text="3" GridPane.columnIndex="1" GridPane.rowIndex="8">
+                           <font>
+                              <Font name="Ubuntu Mono" size="20.0" />
+                           </font>
+                        </Label>
+                        <CheckBox fx:id="y3" mnemonicParsing="false" onAction="#onGuardianCheckedYear" selected="true" GridPane.columnIndex="2" GridPane.rowIndex="8">
+                           <GridPane.margin>
+                              <Insets left="40.0" />
+                           </GridPane.margin>
+                        </CheckBox>
+                        <Button fx:id="appliquerFiltres" mnemonicParsing="false" onAction="#applyFilter" text="Appliquer" GridPane.columnIndex="1" GridPane.columnSpan="4" GridPane.rowIndex="9">
+                           <HBox.margin>
+                              <Insets left="10.0" />
+                           </HBox.margin>
+                           <GridPane.margin>
+                              <Insets left="60.0" />
+                           </GridPane.margin>
+                        </Button>
+                        <Pane maxWidth="1.7976931348623157E308" prefHeight="240.0" prefWidth="114.0" styleClass="border" GridPane.columnIndex="1" GridPane.rowIndex="1" GridPane.rowSpan="8">
+                           <GridPane.margin>
+                              <Insets />
+                           </GridPane.margin>
+                        </Pane>
+                        <Pane maxHeight="-Infinity" minHeight="-Infinity" prefHeight="2.0" styleClass="thinPane" GridPane.columnIndex="1" GridPane.columnSpan="3" GridPane.rowIndex="5">
+                           <GridPane.margin>
+                              <Insets top="-30.0" />
+                           </GridPane.margin>
+                        </Pane>
+                        <Pane maxHeight="-Infinity" minHeight="-Infinity" prefHeight="2.0" styleClass="thinPane" GridPane.columnIndex="1" GridPane.columnSpan="3" GridPane.rowIndex="6">
+                           <GridPane.margin>
+                              <Insets top="30.0" />
+                           </GridPane.margin>
+                        </Pane>
+                        <Pane maxHeight="-Infinity" minHeight="-Infinity" prefHeight="2.0" styleClass="thinPane" GridPane.columnSpan="4" GridPane.rowIndex="1">
+                           <GridPane.margin>
+                              <Insets top="-30.0" />
+                           </GridPane.margin>
+                        </Pane>
+                     </children>
+                     <cursor>
+                        <Cursor fx:constant="DEFAULT" />
+                     </cursor>
+                     <VBox.margin>
+                        <Insets />
+                     </VBox.margin>
+                  </GridPane>
+                  <Separator prefHeight="0.0" prefWidth="400.0">
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                     <VBox.margin>
+                        <Insets top="25.0" />
+                     </VBox.margin>
+                  </Separator>
+                  <Label styleClass="titles" text="Pondérations">
+                     <VBox.margin>
+                        <Insets top="20.0" />
+                     </VBox.margin>
+                     <font>
+                        <Font name="Ubuntu Mono" size="28.0" />
+                     </font>
+                  </Label>
+
+                  <GridPane alignment="CENTER" minWidth="400.0" prefHeight="300.0" prefWidth="400.0" styleClass="gridPane">
+                    <columnConstraints>
+                      <ColumnConstraints hgrow="SOMETIMES" maxWidth="193.0" minWidth="10.0" prefWidth="127.0" />
+                      <ColumnConstraints hgrow="SOMETIMES" maxWidth="289.0" minWidth="10.0" prefWidth="273.0" />
+                        <ColumnConstraints />
+                        <ColumnConstraints />
+                        <ColumnConstraints />
+                    </columnConstraints>
+                    <rowConstraints>
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints />
+                        <RowConstraints />
+                        <RowConstraints />
+                        <RowConstraints />
+                        <RowConstraints maxHeight="0.0" minHeight="0.0" prefHeight="0.0" />
+                        <RowConstraints maxHeight="0.0" minHeight="0.0" prefHeight="0.0" />
+                    </rowConstraints>
+                     <children>
+                        <Pane prefHeight="83.0" styleClass="pane" GridPane.rowSpan="3" />
+                        <Label id="label" fx:id="labelMoyenne" alignment="CENTER" contentDisplay="CENTER" prefHeight="75.0" prefWidth="165.0" styleClass="rows" stylesheets="@borderStyles.css" text="Moyenne">
+                           <font>
+                              <Font name="Ubuntu Mono" size="20.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="labelMatiere" alignment="CENTER" prefHeight="95.0" prefWidth="157.0" styleClass="rows" text="Matière" GridPane.rowIndex="1">
+                           <font>
+                              <Font name="Ubuntu Mono" size="20.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="labelAnnee" alignment="CENTER" prefHeight="95.0" prefWidth="158.0" styleClass="rows" text="Année" GridPane.rowIndex="2">
+                           <font>
+                              <Font name="Ubuntu Mono" size="20.0" />
+                           </font>
+                        </Label>
+                        <Slider fx:id="annee" blockIncrement="1.0" onDragDetected="#onAnneeChanged" onDragExited="#onAnneeChanged" onMouseClicked="#onAnneeChanged" onMouseDragged="#onAnneeChanged" prefHeight="16.0" prefWidth="216.0" showTickLabels="true" showTickMarks="true" value="50.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                           <GridPane.margin>
+                              <Insets left="5.0" right="5.0" />
+                           </GridPane.margin>
+                           <padding>
+                              <Insets left="5.0" right="5.0" />
+                           </padding></Slider>
+                                 <Slider fx:id="matiere" blockIncrement="1.0" onDragDetected="#onMatiereChanged" onDragExited="#onMatiereChanged" onMouseClicked="#onMatiereChanged" onMouseDragged="#onMatiereChanged" prefHeight="16.0" prefWidth="216.0" showTickLabels="true" showTickMarks="true" value="50.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                    <padding>
+                                       <Insets left="5.0" right="5.0" />
+                                    </padding>
+                                 </Slider>
+                                 <Slider fx:id="moyenne" blockIncrement="1.0" onDragDetected="#onMoyenneChanged" onDragExited="#onMoyenneChanged" onMouseClicked="#onMoyenneChanged" onMouseDragged="#onMoyenneChanged" prefHeight="16.0" prefWidth="216.0" showTickLabels="true" showTickMarks="true" value="50.0" GridPane.columnIndex="1">
+                                    <padding>
+                                       <Insets left="5.0" right="5.0" />
+                                    </padding>
+                                 </Slider>
+                        </children>
+                     <cursor>
+                        <Cursor fx:constant="DEFAULT" />
+                     </cursor>
+                     <VBox.margin>
+                        <Insets />
+                     </VBox.margin>
+                  </GridPane>
+               </children>
+               <cursor>
+                  <Cursor fx:constant="DEFAULT" />
+               </cursor>
+            </VBox>
+                     </content>
+            </Tab>
+               <Tab closable="false" text="Affectation">
+                     <content>
+                        <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0">
+                           <children>
+                              <VBox alignment="CENTER">
+                                 <children>
+                                    <Label styleClass="titles" text="Forcer/Éviter une affectation">
+                                       <font>
+                                          <Font name="Ubuntu Mono" size="25.0" />
+                                       </font>
+                                    </Label>
+                                    <VBox alignment="CENTER_LEFT" prefHeight="188.0" prefWidth="413.0">
+                                       <children>
+                                          <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+                                             <children>
+                                                <Label fx:id="guardian" prefHeight="69.0" prefWidth="537.0" text="Tuteur :">
+                                                   <font>
+                                                      <Font size="20.0" />
+                                                   </font>
+                                                   <HBox.margin>
+                                                      <Insets right="15.0" />
+                                                   </HBox.margin>
+                                                </Label>
+                                             </children>
+                                          </HBox>
+                                          <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+                                             <children>
+                                                <Label fx:id="tutee" prefHeight="69.0" prefWidth="529.0" text="Tutoré :">
+                                                   <font>
+                                                      <Font size="20.0" />
+                                                   </font>
+                                                   <HBox.margin>
+                                                      <Insets right="15.0" />
+                                                   </HBox.margin>
+                                                </Label>
+                                             </children>
+                                          </HBox>
+                                          <HBox alignment="CENTER">
+                                             <children>
+                                                <Button fx:id="forcer" mnemonicParsing="false" onAction="#forcedAssignement" prefWidth="100.0" text="Forcer">
+                                                   <font>
+                                                      <Font size="20.0" />
+                                                   </font>
+                                                </Button>
+                                             <Pane prefHeight="39.0" prefWidth="122.0" />
+                                                <Button fx:id="eviter" mnemonicParsing="false" onAction="#avoidedAssignement" prefWidth="100.0" text="Éviter">
+                                                   <font>
+                                                      <Font size="20.0" />
+                                                   </font>
+                                                </Button>
+                                             </children>
+                                          </HBox>
+                                       </children>
+                                    </VBox>
+                                 </children>
+                              <VBox.margin>
+                                 <Insets bottom="20.0" top="10.0" />
+                              </VBox.margin>
+                              </VBox>
+                              <Separator prefWidth="200.0" />
+                              <Separator prefWidth="200.0" />
+                           <Label alignment="CENTER" contentDisplay="CENTER" onMouseClicked="#assignement" prefHeight="249.0" prefWidth="447.0" styleClass="bigButton" text="AFFECTER">
+                              <font>
+                                 <Font name="Ubuntu Mono" size="30.0" />
+                              </font>
+                              <VBox.margin>
+                                 <Insets top="10.0" />
+                              </VBox.margin>
+                           </Label>
+                           <Label alignment="CENTER" contentDisplay="CENTER" onMouseClicked="#addStudent" prefHeight="249.0" prefWidth="447.0" styleClass="bigButton" text="Ajouter un étudiant">
+                              <font>
+                                 <Font name="Ubuntu Mono" size="30.0" />
+                              </font>
+                              <VBox.margin>
+                                 <Insets />
+                              </VBox.margin>
+                           </Label>
+                           </children>
+                        </VBox>
+                     </content>
+                  </Tab>
+            </TabPane>
+         </children>
+      </HBox>
+  </children>
+</VBox>

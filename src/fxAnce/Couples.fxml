@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+  Copyright (c) 2015, 2019, Gluon and/or its affiliates.
+  All rights reserved. Use is subject to license terms.
+
+  This file is available and licensed under the following license:
+
+  Redistribution and use in source and binary forms, with or without
+  modification, are permitted provided that the following conditions
+  are met:
+
+  - Redistributions of source code must retain the above copyright
+    notice, this list of conditions and the following disclaimer.
+  - Redistributions in binary form must reproduce the above copyright
+    notice, this list of conditions and the following disclaimer in
+    the documentation and/or other materials provided with the distribution.
+  - Neither the name of Oracle Corporation nor the names of its
+    contributors may be used to endorse or promote products derived
+    from this software without specific prior written permission.
+
+  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+  "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+  LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+  A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+  OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+  SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+  LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+  DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+  THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+  (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+  OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+-->
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.canvas.Canvas?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox prefHeight="540.0" prefWidth="914.0" stylesheets="@borderStyles.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fxAnce.CouplesController">
+  <children>
+      <HBox prefHeight="40.0" prefWidth="914.0" style="-fx-background-color: grey;">
+         <children>
+            <Pane prefHeight="40.0" prefWidth="61.0" />
+            <Label prefHeight="40.0" prefWidth="132.0" text="Couples" textFill="WHITE">
+               <font>
+                  <Font name="Ubuntu Mono" size="35.0" />
+               </font>
+            </Label>
+            <Pane prefHeight="40.0" prefWidth="414.0" />
+            <Label prefHeight="40.0" prefWidth="132.0" text="Détails" textFill="WHITE">
+               <font>
+                  <Font name="Ubuntu Mono" size="35.0" />
+               </font>
+            </Label>
+         </children>
+      </HBox>
+      <HBox prefHeight="539.0" prefWidth="914.0">
+         <children>
+            <ListView fx:id="listView" maxWidth="-Infinity" onMouseClicked="#updateDetails" prefHeight="491.0" prefWidth="572.0" stylesheets="@borderStyles.css" />
+            <VBox prefHeight="483.0" prefWidth="470.0">
+               <children>
+                  <HBox fx:id="hbox" alignment="CENTER" prefHeight="300.0" prefWidth="350.0">
+                     <children>
+                        <Canvas fx:id="canva3" height="150.0" width="150.0" />
+                        <Label fx:id="score" prefHeight="32.0" prefWidth="37.0" text="Avec">
+                           <font>
+                              <Font name="Ubuntu Mono" size="17.0" />
+                           </font>
+                        </Label>
+                        <Canvas fx:id="canva4" height="150.0" layoutX="10.0" layoutY="10.0" width="150.0" />
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER" prefHeight="189.0" prefWidth="514.0">
+                     <children>
+                        <Label fx:id="noteTuteur" alignment="CENTER" prefHeight="106.0" prefWidth="130.0" text="0">
+                           <HBox.margin>
+                              <Insets />
+                           </HBox.margin>
+                           <font>
+                              <Font name="Ubuntu Mono" size="21.0" />
+                           </font>
+                        </Label>
+                        <Label alignment="CENTER" prefHeight="113.0" prefWidth="124.0" text="moyenne">
+                           <font>
+                              <Font name="Ubuntu Mono" size="21.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="noteTutore" alignment="CENTER" prefHeight="106.0" prefWidth="123.0" text="0">
+                           <HBox.margin>
+                              <Insets />
+                           </HBox.margin>
+                           <font>
+                              <Font name="Ubuntu Mono" size="21.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER" prefHeight="149.0" prefWidth="470.0">
+                     <children>
+                        <Label fx:id="matiereTuteur" alignment="CENTER" prefHeight="66.0" prefWidth="132.0" text="JAVA">
+                           <HBox.margin>
+                              <Insets />
+                           </HBox.margin>
+                           <font>
+                              <Font name="Ubuntu Mono" size="21.0" />
+                           </font>
+                        </Label>
+                        <Label alignment="CENTER" prefHeight="73.0" prefWidth="87.0" text="matière">
+                           <font>
+                              <Font name="Ubuntu Mono" size="21.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="matiereTutore" alignment="CENTER" prefHeight="93.0" prefWidth="133.0" text="JAVA">
+                           <HBox.margin>
+                              <Insets />
+                           </HBox.margin>
+                           <font>
+                              <Font name="Ubuntu Mono" size="21.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER" prefHeight="160.0" prefWidth="470.0">
+                     <children>
+                        <Label fx:id="anneeTuteur" alignment="CENTER" prefHeight="77.0" prefWidth="106.0" text="1">
+                           <HBox.margin>
+                              <Insets />
+                           </HBox.margin>
+                           <font>
+                              <Font name="Ubuntu Mono" size="21.0" />
+                           </font>
+                        </Label>
+                        <Label alignment="CENTER" prefHeight="103.0" prefWidth="177.0" text="année d'étude">
+                           <font>
+                              <Font name="Ubuntu Mono" size="21.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="anneeTutore" alignment="CENTER" prefHeight="76.0" prefWidth="91.0" text="1">
+                           <HBox.margin>
+                              <Insets />
+                           </HBox.margin>
+                           <font>
+                              <Font name="Ubuntu Mono" size="21.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </HBox>
+                  <HBox prefHeight="100.0" prefWidth="200.0" />
+               </children>
+            </VBox>
+         </children>
+      </HBox>
+  </children>
+</VBox>
